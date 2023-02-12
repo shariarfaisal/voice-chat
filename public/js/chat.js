@@ -1,4 +1,4 @@
-(function () {
+(async function () {
   const home = document.querySelector(".home");
   const homeAction = document.querySelector(".home-action");
   const msgs = document.querySelector(".msgs");
@@ -62,6 +62,19 @@
   });
   let room = null;
   let user = null; // id, name, location:{ country, city, latitude, longitude }, status
+
+  try {
+    const is = await navigator.permissions.query({ name: "microphone" });
+    if (is.state !== "granted") {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: true,
+      });
+    }
+
+    // ask permission
+  } catch (err) {
+    console.log(err);
+  }
 
   // If socket disconnected
   //
@@ -492,7 +505,7 @@
     return new Promise((resolve) => {
       if (navigator.mediaDevices) {
         navigator.mediaDevices
-          .getUserMedia({ audio: true })
+          .getUserMedia({ audio: true, video: false })
           .then((stream) => {
             // Play start sound
             if (startSound) {
