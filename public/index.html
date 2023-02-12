@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Anonymous Voice Chat</title>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    <meta name="title" content="Anonymous Voice Chat" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="image/cover.jpg" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+  </head>
+  <body>
+    <div class="app row justify-content-center mx-0 px-md-0">
+      <div class="brand-logo-web">Meet Anonymous</div>
+
+      <div class="content col-sm-8 p-0">
+        <div class="brand-logo-mob">Meet Anonymous</div>
+
+        <div class="home d-flex align-items-center justify-content-center">
+          <div class="home-content">
+            <h1 class="title">Voice chat with random strangers</h1>
+            <p class="text">
+              By clicking start chat button you will be connected to a random
+              stranger. After connecting you will be able to send or receive
+              voice notes. Once you disconnected your voice data will be
+              vanished forever.
+            </p>
+            <div
+              class="home-action justify-content-center"
+              style="display: none"
+            >
+              <button id="start-chat" class="btn btn-primary" type="button">
+                Start Chat
+              </button>
+            </div>
+            <div class="home-action-loading justify-content-center">
+              <button
+                id="start-chat-loading"
+                class="btn btn-primary"
+                type="button"
+              >
+                loading...
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-env" style="display: none">
+          <div class="msgs"></div>
+          <div
+            id="control"
+            class="control d-flex justify-content-center align-items-center"
+          >
+            <div class="recorder-section" style="position: relative">
+              <div id="mic-indicator">
+                <div class="text">Click here to record and send voice</div>
+                <button class="got-it">Got it</button>
+              </div>
+              <div id="logout-indicator">
+                <div class="text">Click here to cancel chat</div>
+                <button class="got-it">Got it</button>
+              </div>
+              <div
+                id="recorder-counter"
+                class="round-btn mx-2"
+                style="
+                  display: none;
+                  border: 2px solid rgb(0, 175, 94);
+                  background: white;
+                  color: rgb(0, 175, 94);
+                  font-weight: 600;
+                  box-shadow: none;
+                "
+              >
+                0
+              </div>
+              <button
+                id="mike-start"
+                style="background: rgb(0, 175, 94); color: white; display: none"
+                class="round-btn mx-2"
+              >
+                <i class="bx bx-microphone icon"></i>
+              </button>
+              <div id="mike-stop" class="mike-wrap mx-2">
+                <button
+                  class="round-btn"
+                  style="background: #ff2e2e; color: white"
+                  type="button"
+                >
+                  <i class="bx bx-microphone icon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="room-section">
+              <button
+                id="chat-cancel"
+                class="round-btn mx-2"
+                style="background: rgb(255, 46, 46); color: white"
+                type="button"
+              >
+                <i class="bx bx-log-out icon"></i>
+              </button>
+              <button
+                id="new-chat"
+                class="round-btn mx-2"
+                style="display: none; background: rgb(0 175 94); color: white"
+                type="button"
+              >
+                <i class="bx bx-plus icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="x-modal d-none align-items-center justify-content-center">
+        <div class="x-modal--content col-md-8 col-lg-6">
+          <div class="x-close"><i class="bx bx-x"></i></div>
+          <div class="x-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+    <script></script>
+  </body>
+</html>
